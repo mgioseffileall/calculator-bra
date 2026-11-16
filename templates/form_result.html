@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Resultados do Formulário</title>
+</head>
+<body class="result-page">
+
+    {% block content %}
+    <div class="result">
+        <img class="result__img" src="/static/img/planet_good.svg" alt="">
+        <h1 class="result__title">Obrigado por preencher o formulário!</h1>
+        <p class="result__subtitle">Nossa equipe entrará em contato para a sua eco-construção.</p>
+        <ul class="result__list">
+            <li><span class="result__label">Seu nome</span> {{ name }}</li>
+            <li><span class="result__label">Seu email</span> {{ email }}</li>
+            <li><span class="result__label">Seu endereço</span> {{ address }}</li>
+            <li><span class="result__label">Data</span> {{ date }}</li>
+        </ul>
+        <a href="{{ url_for('index') }}" class="main__link">Voltar ao início</a>
+    </div>
+    {% endblock %}
+
+</body>
+</html>

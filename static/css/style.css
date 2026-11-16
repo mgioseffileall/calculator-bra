@@ -20,25 +20,64 @@ ul {
     padding: 0;
 }
 
+/* Cabeçalho: imagem à esquerda e texto à direita, sem sobreposição */
 .header {
+    background-color: #CCE59D;
+    padding: 40px 60px;
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.header::before {
+    content: "";
+    width: 100%;
+    max-width: 520px;
+    justify-self: center;
+    aspect-ratio: 801 / 601;
     background-image: url("../img/back.jpg");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: left;
-    background-color: #CCE59D;
-    padding: 25vh 30px;
-    margin-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    background-position: center;
 }
 
 .header__text {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    width: fit-content;
-    text-align: right;
+    gap: 20px;
+    max-width: 560px;
+    text-align: left;
+}
+
+.header__text h1 {
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.2;
+}
+
+.header__text p {
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.5;
+    color: #3d4a2a;
+}
+
+/* Telas pequenas: imagem em cima, texto embaixo */
+@media (max-width: 800px) {
+    .header {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        gap: 20px;
+    }
+
+    .header::before {
+        max-width: 360px;
+    }
+
+    .header__text {
+        text-align: center;
+        max-width: none;
+    }
 }
 
 main {
@@ -90,4 +129,152 @@ main {
 
 .main__title--margin {
     margin-bottom: 50px;
+}
+
+.main__link {
+    display: inline-block;
+    text-decoration: none;
+    padding: 20px 0;
+    width: 300px;
+    border-radius: 20px;
+    background-color: #0EB07C;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+
+.user input {
+    padding: 10px;
+    border: 1px solid #EB8028;
+    background: inherit;
+    border-radius: 5px;
+    font: inherit;
+    width: 100%;
+    color: #EB8028;
+}
+
+.user input:focus,
+.user input:active {
+    border: 1px solid #EB8028;
+    outline: none;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.user-info {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+label {
+    display:inline-block ;
+    margin-bottom: 10px;
+}
+
+.address-date {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.delivery {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    width: 10%;
+    padding: 10px;
+    min-width: 300px;
+    cursor: pointer;
+    align-self: center;
+    border: none;
+    border-radius: 10px;
+    background: #0EB07C;
+    font: inherit;
+    color: #fff;
+}
+/* Página de resultado do formulário (form_result.html) */
+.result-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CCE59D;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.result {
+    background-color: #fff;
+    max-width: 520px;
+    width: 100%;
+    padding: 40px 30px;
+    border-radius: 24px;
+    border: 1px solid #EB8028;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.result__img {
+    width: 120px;
+}
+
+.result__title {
+    color: #0EB07C;
+    font-size: 28px;
+    line-height: 34px;
+}
+
+.result__subtitle {
+    color: #6b6b6b;
+    font-size: 16px;
+}
+
+.result__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+.result__list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background-color: #f6faee;
+    overflow-wrap: anywhere;
+}
+
+.result__label {
+    font-weight: bold;
+    color: #EB8028;
+    flex-shrink: 0;
+}
+
+.result .main__link {
+    margin-top: 10px;
 }
